@@ -38,7 +38,7 @@ server.use("/orders", ordersRouter.router);
 server.use("/uploads", express.static("uploads"));
 main().catch((err) => console.log(err));
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
   server.use(express.static(path.resolve(__dirname, "./build")));
   server.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "build", "index.html"));
