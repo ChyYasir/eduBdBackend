@@ -38,14 +38,16 @@ server.use("/orders", ordersRouter.router);
 server.use("/uploads", express.static("uploads"));
 main().catch((err) => console.log(err));
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV !== "production") {
   server.use(express.static(path.resolve(__dirname, "./build")));
   server.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
 }
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/edubd");
+  await mongoose.connect(
+    "mongodb+srv://chyyasir2000:fUe4dFIoAWxK58j8@cluster0.uwy7kds.mongodb.net/?retryWrites=true&w=majority"
+  );
   console.log("Database Connected");
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
@@ -56,3 +58,5 @@ server.get("/", (req, res) => {
 server.listen(8080, () => {
   console.log("Server Started");
 });
+// chyyasir2000
+// fUe4dFIoAWxK58j8
