@@ -45,9 +45,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://chyyasir2000:fUe4dFIoAWxK58j8@cluster0.uwy7kds.mongodb.net/?retryWrites=true&w=majority"
-  );
+  await mongoose.connect(process.env.db_url);
   console.log("Database Connected");
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }

@@ -6,7 +6,7 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   imageUrl: { type: String },
-  orders: { type: [Schema.Types.Mixed] },
+  products: { type: [Schema.Types.ObjectId] },
 });
 
 const virtual = userSchema.virtual("id");
